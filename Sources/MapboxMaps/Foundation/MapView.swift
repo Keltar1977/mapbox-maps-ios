@@ -8,7 +8,6 @@
 import UIKit
 
 // swiftlint:disable type_body_length
-@available(iOSApplicationExtension, unavailable)
 open class MapView: UIView {
 
     // `mapboxMap` depends on `MapInitOptions`, which is not available until
@@ -455,7 +454,7 @@ open class MapView: UIView {
         if #available(iOS 13.0, *) {
             optionalInterfaceOrientation = window?.windowScene?.interfaceOrientation
         } else {
-            optionalInterfaceOrientation =  UIApplication.shared.statusBarOrientation
+            optionalInterfaceOrientation =  UIApplication.sharedApp?.statusBarOrientation
         }
 
         guard let interfaceOrientation = optionalInterfaceOrientation else {
@@ -494,7 +493,6 @@ open class MapView: UIView {
     }
 }
 
-@available(iOSApplicationExtension, unavailable)
 extension MapView: DelegatingMapClientDelegate {
     internal func scheduleRepaint() {
         needsDisplayRefresh = true

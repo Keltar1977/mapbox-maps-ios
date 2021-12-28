@@ -45,7 +45,7 @@ class TestableExampleTests: XCTestCase {
     }
 
     @objc private func runExample() {
-        guard let navigationController = UIApplication.shared.windows.first?.rootViewController as? UINavigationController else {
+        guard let navigationController = UIApplication.sharedApp?.windows.first?.rootViewController as? UINavigationController else {
             XCTFail("Root controller is not a UINavigationController")
             return
         }

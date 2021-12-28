@@ -303,8 +303,9 @@ class MigrationGuideIntegrationTests: IntegrationTestCase {
         }
 
         let appDelegate = AppDelegate()
-
-        _ = appDelegate.application(UIApplication.shared, didFinishLaunchingWithOptions: nil)
+        if let application = UIApplication.sharedApp {
+            _ = appDelegate.application(application, didFinishLaunchingWithOptions: nil)
+        }
     }
 
     func testSettingCamera() {
