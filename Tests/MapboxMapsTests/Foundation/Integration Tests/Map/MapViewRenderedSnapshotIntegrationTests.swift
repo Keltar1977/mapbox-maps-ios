@@ -5,7 +5,7 @@ import XCTest
 final class MapViewRenderedSnapshotIntegrationTests: MapViewIntegrationTestCase {
 
     func testLoadStyleAndTakeSnapshotSucceeds() throws {
-        guard !UIApplication.shared.windows.isEmpty else {
+        guard !UIApplication.sharedApp?.windows.isEmpty else {
             throw XCTSkip("Requires a host application")
         }
 

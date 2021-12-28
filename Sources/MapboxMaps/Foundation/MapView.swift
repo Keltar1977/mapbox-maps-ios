@@ -455,7 +455,7 @@ open class MapView: UIView {
         if #available(iOS 13.0, *) {
             optionalInterfaceOrientation = window?.windowScene?.interfaceOrientation
         } else {
-            optionalInterfaceOrientation =  UIApplication.shared.statusBarOrientation
+            optionalInterfaceOrientation =  UIApplication.sharedApp?.statusBarOrientation
         }
 
         guard let interfaceOrientation = optionalInterfaceOrientation else {

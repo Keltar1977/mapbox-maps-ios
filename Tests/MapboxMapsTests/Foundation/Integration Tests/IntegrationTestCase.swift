@@ -30,7 +30,7 @@ internal class IntegrationTestCase: XCTestCase {
     private func setupScreenAndWindow() throws {
         // Look for an existing window/rvc. This will be the case
         // when running with a host application
-        window = UIApplication.shared.windows.first
+        window = UIApplication.sharedApp?.windows.first
         rootViewController = window?.rootViewController
 
         if (window == nil) && (rootViewController == nil) {

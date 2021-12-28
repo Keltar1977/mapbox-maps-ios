@@ -91,7 +91,7 @@ internal class AttributionDialogManager {
                                           comment: "Telemetry prompt button")
         let moreAction = UIAlertAction(title: moreTitle, style: .default) { _ in
             guard let url = URL(string: Ornaments.telemetryURL) else { return }
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.sharedApp?.open(url, options: [:], completionHandler: nil)
         }
         alert.addAction(moreAction)
 
