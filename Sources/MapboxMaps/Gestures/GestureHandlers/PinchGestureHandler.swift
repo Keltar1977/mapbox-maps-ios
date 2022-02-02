@@ -76,6 +76,10 @@ extension PinchGestureHandler: GestureHandlerDelegate {
     func gestureBegan(for gestureType: GestureType) {
         delegate?.gestureBegan(for: gestureType)
     }
+    
+    func gestureChanged(for gestureType: GestureType) {
+        delegate?.gestureChanged(for: gestureType)
+    }
 
     func gestureEnded(for gestureType: GestureType, willAnimate: Bool) {
         delegate?.gestureEnded(for: gestureType, willAnimate: willAnimate)

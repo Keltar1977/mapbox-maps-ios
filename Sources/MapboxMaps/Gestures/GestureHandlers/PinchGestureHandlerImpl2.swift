@@ -109,6 +109,7 @@ internal final class PinchGestureHandlerImpl2: PinchGestureHandlerImpl {
                     anchor: pinchMidpoint,
                     zoom: initialZoom + zoomIncrement,
                     bearing: initialRotateEnabled ? (initialBearing + rotationInDegrees) : nil))
+            delegate?.gestureChanged(for: .pinch)
         case .ended, .cancelled:
             previousPinchMidpoint = nil
             initialPinchAngle = nil

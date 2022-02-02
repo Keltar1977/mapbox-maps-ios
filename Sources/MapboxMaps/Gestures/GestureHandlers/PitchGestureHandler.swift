@@ -55,6 +55,7 @@ internal final class PitchGestureHandler: GestureHandler, UIGestureRecognizerDel
                 let newPitch = initialPitch - (verticalGestureTranslation / slowDown)
                 mapboxMap.setCamera(to: CameraOptions(pitch: newPitch))
             }
+            delegate?.gestureChanged(for: .pitch)
         case .ended, .cancelled:
             initialPitch = nil
             delegate?.gestureEnded(for: .pitch, willAnimate: false)

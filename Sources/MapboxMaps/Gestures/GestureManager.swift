@@ -4,13 +4,18 @@ public protocol GestureManagerDelegate: AnyObject {
 
     /// Informs the delegate that a gesture has begun.
     func gestureManager(_ gestureManager: GestureManager, didBegin gestureType: GestureType)
-
+    
+    func gestureManager(_ gestureManager: GestureManager, didChange gestureType: GestureType)
     /// Informs the delegate that a gesture has ended and whether there will be additional animations after the gesture
     /// has completed. Does not indicate whether gesture-based animations have completed.
     func gestureManager(_ gestureManager: GestureManager, didEnd gestureType: GestureType, willAnimate: Bool)
 
     /// Informs the delegate that animations triggered due to a gesture have ended.
     func gestureManager(_ gestureManager: GestureManager, didEndAnimatingFor gestureType: GestureType)
+}
+
+public extension GestureManagerDelegate {
+    func gestureManager(_ gestureManager: GestureManager, didChange gestureType: GestureType) {}
 }
 
 public final class GestureManager: GestureHandlerDelegate {
@@ -134,6 +139,10 @@ public final class GestureManager: GestureHandlerDelegate {
     internal func gestureBegan(for gestureType: GestureType) {
         mapboxMap.beginGesture()
         delegate?.gestureManager(self, didBegin: gestureType)
+    }
+    
+    func gestureChanged(for gestureType: GestureType) {
+        delegate?.gestureManager(self, didChange: gestureType)
     }
 
     func gestureEnded(for gestureType: GestureType, willAnimate: Bool) {

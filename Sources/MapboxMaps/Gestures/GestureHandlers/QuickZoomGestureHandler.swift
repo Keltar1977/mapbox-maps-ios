@@ -34,6 +34,7 @@ internal final class QuickZoomGestureHandler: GestureHandler {
             // change by 1 zoom level per 75 points of translation
             let newZoom = initialZoom + distance / 75
             mapboxMap.setCamera(to: CameraOptions(anchor: initialLocation, zoom: newZoom))
+            delegate?.gestureChanged(for: .quickZoom)
         case .ended, .cancelled:
             initialLocation = nil
             initialZoom = nil

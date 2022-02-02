@@ -87,6 +87,7 @@ internal final class PanGestureHandler: GestureHandler, PanGestureHandlerProtoco
             let clampedTouchLocation = touchLocation.clamped(to: previousTouchLocation, panMode: panMode)
             pan(from: previousTouchLocation, to: clampedTouchLocation)
             self.previousTouchLocation = clampedTouchLocation
+            delegate?.gestureChanged(for: .pan)
         case .ended:
             // Only decelerate if the gesture ended quickly. Otherwise,
             // you get a deceleration in situations where you drag, then
